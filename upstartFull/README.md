@@ -2,7 +2,7 @@
 
 A modern Android app demonstrating a multi-step loan application form built with Jetpack Compose and Material Design 3.
 
-## 🎯 What This App Does
+## What This App Does
 
 This is a 3-step loan application form that guides users through:
 
@@ -18,9 +18,11 @@ The app features:
 - **Step Indicator** - Visual progress through the application
 - **Loading States** - Smooth transitions with progress indicators
 
-## 🏗️ Architecture
+## Architecture
 
 This app uses a **feature-sliced architecture** with the **MVI (Model-View-Intent) pattern**:
+
+![alt text](./architecture.png)
 
 ### Key Components
 
