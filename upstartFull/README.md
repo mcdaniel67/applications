@@ -57,7 +57,7 @@ This app uses a **feature-sliced architecture** with the **MVI (Model-View-Inten
 ```bash
 # Clone the repository
 git clone <repository-url>
-cd AndroidPractice
+cd upstartFull
 
 # Build the debug APK
 ./gradlew assembleDebug

@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "AndroidPractice"
+rootProject.name = "Upstart Full"
 include(":app")
  
