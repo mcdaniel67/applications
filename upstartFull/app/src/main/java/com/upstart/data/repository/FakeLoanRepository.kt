@@ -3,6 +3,7 @@ package com.upstart.data.repository
 import com.upstart.core.models.LoanResponse
 import com.upstart.core.models.LoanType
 import kotlinx.coroutines.delay
+import java.io.IOException
 import kotlin.time.Duration.Companion.seconds
 
 /**
@@ -17,7 +18,7 @@ class FakeLoanRepository : LoanRepository {
 
         // Simulate potential failure (10% chance)
         if (Math.random() < 0.1) {
-            throw Exception("Network error: Failed to submit loan details")
+            throw IOException("Network error: Failed to submit loan details")
         }
 
         // Return a UUID for the application
@@ -30,7 +31,7 @@ class FakeLoanRepository : LoanRepository {
 
         // Simulate potential failure (10% chance)
         if (Math.random() < 0.1) {
-            throw Exception("Network error: Failed to submit personal information")
+            throw IOException("Network error: Failed to submit personal information")
         }
 
         return "Personal information saved for $firstName $lastName"
@@ -39,11 +40,6 @@ class FakeLoanRepository : LoanRepository {
     override suspend fun getApplicationStatus(applicationId: String): LoanResponse {
         // Simulate network delay
         delay(2.seconds)
-
-        // Simulate potential failure (10% chance)
-        if (Math.random() < 0.1) {
-            throw Exception("Network error: Failed to retrieve application status")
-        }
 
         return LoanResponse(
             success = true,

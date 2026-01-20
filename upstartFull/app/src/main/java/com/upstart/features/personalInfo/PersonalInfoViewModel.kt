@@ -12,6 +12,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import java.io.IOException
 
 class PersonalInfoViewModel(
     private val repository: LoanRepository = FakeLoanRepository()
@@ -87,7 +88,7 @@ class PersonalInfoViewModel(
                 email = _state.value.email
             )
             _submissionState.value = SubmissionState.Success(message)
-        } catch (e: Exception) {
+        } catch (e: IOException) {
             _submissionState.value = SubmissionState.Error(e.message ?: "Failed to submit personal information")
         }
     }

@@ -29,7 +29,7 @@ fun FormScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(vertical = Spacing.xxl, horizontal = Spacing.lg)
+            .padding(vertical = Spacing.xxxl, horizontal = Spacing.lg)
             .verticalScroll(rememberScrollState())
     ) {
         // Header

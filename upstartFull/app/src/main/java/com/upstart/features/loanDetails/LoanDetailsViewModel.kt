@@ -14,6 +14,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import java.io.IOException
 
 class LoanDetailsViewModel(
     private val repository: LoanRepository = FakeLoanRepository()
@@ -82,7 +83,7 @@ class LoanDetailsViewModel(
             _state.value = _state.value.copy(applicationId = applicationId)
 
             _submissionState.value = SubmissionState.Success("Loan details saved with ID: $applicationId")
-        } catch (e: Exception) {
+        } catch (e: IOException) {
             _submissionState.value = SubmissionState.Error(e.message ?: "Failed to submit loan details")
         }
     }

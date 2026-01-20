@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import java.io.IOException
 
 sealed class ResultState {
     data object Loading : ResultState()
@@ -34,7 +35,7 @@ class ResultViewModel(
             try {
                 val response = repository.getApplicationStatus(applicationId)
                 _state.value = ResultState.Success(response)
-            } catch (e: Throwable) {
+            } catch (e: IOException) {
                 _state.value = ResultState.Error(e.message ?: "Failed to fetch application status")
             }
         }
